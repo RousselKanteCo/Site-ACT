@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ACT - Accelerator for Creative Talent | JCI IARIVO</title>
+  <meta name="description"
+    content="ACT — Accelerator for Creative Talent : concours d'expression scénique & pitch entrepreneurial à Antananarivo. Ateliers 15/11, Éliminatoires 21/11, Finale 29/11/2025." />
+  <meta name="theme-color" content="#0C4DA2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ================= TOKENS / RESET ================= */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    :root {
+      --blue: #0C4DA2;
+      --yellow: #FDB515;
+      --dark: #0A1128;
+      --ink: #0F1B2D;
+      --grey: #6B7280;
+      --muted: #E5E7EB;
+      --white: #FFFFFF;
+      --bg: #FFFDF5;
+      --r-s: 4px;
+      --r: 6px;
+      --r-m: 8px;
+      --max: 1400px;
+      --shadow-1: 0 6px 24px rgba(0, 0, 0, .06);
+      --shadow-2: 0 10px 32px rgba(0, 0, 0, .08);
+      --shadow-3: 0 18px 48px rgba(0, 0, 0, .15);
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.7;
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #60A5FA;
+      outline-offset: 3px;
+      border-radius: var(--r)
+    }
+
+    .container {
+      max-width: var(--max);
+      margin-inline: auto;
+      padding-inline: 1.25rem
+    }
+
+    @media (min-width:768px) {
+      .container {
+        padding-inline: 2rem
+      }
+    }
+
+    @media (min-width:1200px) {
+      .container {
+        padding-inline: 3rem
+      }
+    }
+
+    /* ================= BACKGROUND (bleu/jaune) ================= */
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      background:
+        radial-gradient(1200px 800px at 15% 20%, rgba(12, 77, 162, .12), transparent 60%),
+        radial-gradient(1000px 700px at 85% 80%, rgba(253, 181, 21, .18), transparent 60%),
+        linear-gradient(135deg, #F6FAFF 0%, #FFFDF1 100%);
+      background-size: 120% 120%;
+      animation: bgShift 22s ease-in-out infinite;
+    }
+
+    @keyframes bgShift {
+
+      0%,
+      100% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+    }
+
+    .shape {
+      position: absolute;
+      opacity: .08;
+      animation: float 20s ease-in-out infinite;
+      will-change: transform
+    }
+
+    .shape.s1 {
+      width: 320px;
+      height: 320px;
+      background: var(--blue);
+      border-radius: 50%;
+      top: -160px;
+      left: 8%
+    }
+
+    .shape.s2 {
+      width: 240px;
+      height: 240px;
+      background: var(--yellow);
+      right: 6%;
+      bottom: 10%;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+    }
+
+    .shape.s3 {
+      width: 200px;
+      height: 200px;
+      background: var(--blue);
+      left: 70%;
+      top: 55%;
+      border-radius: 16%
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translate(0, 0)
+      }
+
+      50% {
+        transform: translate(30px, -18px)
+      }
+    }
+
+    /* ================= NAV ================= */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(12, 77, 162, .12);
+      animation: navSlide .6s ease-out both;
+    }
+
+    @keyframes navSlide {
+      from {
+        transform: translateY(-100%);
+        opacity: 0
+      }
+
+      to {
+        transform: none;
+        opacity: 1
+      }
+    }
+
+    .nav-wrap {
+      max-width: var(--max);
+      margin-inline: auto;
+      padding: .75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem
+    }
+
+    @media (min-width:768px) {
+      .nav-wrap {
+        padding: 1rem 2rem
+      }
+    }
+
+    @media (min-width:1200px) {
+      .nav-wrap {
+        padding: 1rem 3rem
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex: 1
+    }
+
+    .brand img {
+      height: 80px;
+      width: auto;
+      transition: transform .3s ease
+    }
+
+    .brand img:hover {
+      transform: scale(1.03)
+    }
+
+    .nav-links {
+      display: none;
+      gap: 1.25rem;
+      margin-inline: 1rem
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      font-weight: 600;
+      position: relative;
+      padding: .4rem .1rem;
+      transition: color .2s ease
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      background: var(--blue);
+      transition: width .25s;
+      border-radius: var(--r-s)
+    }
+
+    .nav-links a:hover {
+      color: var(--blue)
+    }
+
+    .nav-links a:hover::after {
+      width: 100%
+    }
+
+    .nav-cta {
+      position: relative;
+      overflow: hidden;
+      padding: .65rem 1.2rem;
+      background: var(--yellow);
+      color: #fff;
+      font-weight: 800;
+      border-radius: var(--r-m);
+      box-shadow: 0 6px 18px rgba(253, 181, 21, .30);
+      border: 2px solid transparent;
+      white-space: nowrap;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .nav-cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-120%);
+      background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, .45) 35%, transparent 70%);
+      transition: transform .6s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(12, 77, 162, .28);
+      filter: saturate(1.05)
+    }
+
+    .nav-cta:hover::after {
+      transform: translateX(120%)
+    }
+
+    .nav-end {
+      display: flex;
+      align-items: center;
+      gap: .8rem
+    }
+
+    @media (min-width:992px) {
+      .nav-links {
+        display: flex
+      }
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 9rem 0 4rem
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: .5rem 1rem;
+      border: 2px solid rgba(12, 77, 162, .2);
+      border-radius: var(--r);
+      background: linear-gradient(135deg, rgba(12, 77, 162, .06), rgba(253, 181, 21, .06));
+      font-size: .85rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+      animation: fadeUp .6s .2s both;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 6.5vw, 5.6rem);
+      line-height: 1.02;
+      letter-spacing: -.02em;
+      font-weight: 900;
+      color: var(--dark);
+      margin: 0 0 1rem;
+      animation: fadeUp .6s .35s both;
+    }
+
+    .hero-title .hl {
+      color: var(--blue);
+      position: relative
+    }
+
+    .hero-title .hl::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: .15em;
+      width: 100%;
+      height: .45em;
+      background: var(--yellow);
+      opacity: .32;
+      border-radius: var(--r-s)
+    }
+
+    .hero-sub {
+      max-width: 760px;
+      color: var(--grey);
+      font-size: 1.05rem;
+      animation: fadeUp .6s .5s both
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .hero-dates {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.8rem 0 2.2rem;
+      animation: fadeUp .6s .6s both
+    }
+
+    .date-card {
+      position: relative;
+      overflow: hidden;
+      padding: 1.6rem;
+      border-radius: var(--r-m);
+      box-shadow: var(--shadow-1);
+      border: 2px solid transparent;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+      will-change: transform;
+    }
+
+    .date-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-120%);
+      background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, .25) 40%, transparent 70%);
+      transition: transform .7s ease;
+    }
+
+    .date-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-3);
+      filter: saturate(1.02)
+    }
+
+    .date-card:hover::after {
+      transform: translateX(120%)
+    }
+
+    .date-card .left {
+      display: flex;
+      align-items: baseline;
+      gap: .75rem
+    }
+
+    .date-num {
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -.03em;
+      animation: bounce 2.4s ease-in-out infinite
+    }
+
+    @keyframes bounce {
+      50% {
+        transform: translateY(-4px)
+      }
+    }
+
+    .date-month {
+      font-weight: 700;
+      opacity: .95
+    }
+
+    .date-label {
+      font-weight: 800
+    }
+
+    .date-1 {
+      background: linear-gradient(135deg, var(--blue), #0C4DA2)
+    }
+
+    .date-2 {
+      background: linear-gradient(135deg, var(--yellow), #FDB515);
+      color: #0A1128
+    }
+
+    .date-3 {
+      background: linear-gradient(135deg, var(--dark), #1f2937)
+    }
+
+    @media (min-width:680px) {
+      .hero-dates {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      animation: fadeUp .6s .7s both
+    }
+
+    .btn {
+      --shine-speed: .6s;
+      position: relative;
+      overflow: hidden;
+      padding: 1rem 1.2rem;
+      font-weight: 800;
+      border: none;
+      border-radius: var(--r-m);
+      cursor: pointer;
+      min-height: 44px;
+      min-width: 44px;
+      transition: transform .2s ease, box-shadow .25s ease, filter .25s ease, background .2s ease, color .2s ease;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-120%);
+      background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, .35) 35%, transparent 70%);
+      transition: transform var(--shine-speed) ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      filter: saturate(1.05)
+    }
+
+    .btn:hover::after {
+      transform: translateX(120%)
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(.98)
+    }
+
+    .btn.primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(12, 77, 162, .30)
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: var(--dark);
+      border: 3px solid var(--dark);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .10)
+    }
+
+    /* ================= “POURQUOI & COMMENT” ================= */
+    .why {
+      background: #FAFCFF;
+      padding: 5rem 0
+    }
+
+    .why-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr
+    }
+
+    @media (min-width:900px) {
+      .why-grid {
+        grid-template-columns: 1.25fr .75fr
+      }
+    }
+
+    .why .lead,
+    .benefits {
+      background: #fff;
+      border: 1px solid var(--muted);
+      border-radius: var(--r-m);
+      padding: 1.25rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .05);
+      transition: transform .25s ease, box-shadow .25s ease
+    }
+
+    .why .lead:hover,
+    .benefits:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-2)
+    }
+
+    .why h3 {
+      margin: .2rem 0 .4rem;
+      font-size: 1.25rem;
+      font-weight: 900
+    }
+
+    .why p {
+      color: var(--grey)
+    }
+
+    .steps {
+      display: grid;
+      gap: .8rem;
+      margin-top: .8rem
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: .8rem;
+      align-items: start;
+      background: #fff;
+      border: 1px solid var(--muted);
+      border-radius: var(--r-m);
+      padding: 1rem;
+      transition: background .2s ease, transform .2s ease
+    }
+
+    .step:hover {
+      background: #F7FAFF;
+      transform: translateY(-2px)
+    }
+
+    .icon {
+      width: 28px;
+      height: 28px;
+      border: 2px solid var(--blue);
+      border-radius: var(--r-s);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: var(--blue)
+    }
+
+    .tick {
+      display: flex;
+      gap: .6rem;
+      align-items: flex-start;
+      margin: .35rem 0;
+      color: var(--grey)
+    }
+
+    .tick::before {
+      content: "✓";
+      color: var(--blue);
+      font-weight: 900;
+      line-height: 1.3
+    }
+
+    /* ================= SECTION / HEADERS ================= */
+    section {
+      padding: 5rem 0
+    }
+
+    .section-h {
+      text-align: center;
+      margin-bottom: 2.4rem
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--blue)
+    }
+
+    .title {
+      font-size: clamp(1.8rem, 4.2vw, 3rem);
+      font-weight: 900;
+      margin: .25rem 0
+    }
+
+    .sub {
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--grey)
+    }
+
+    /* ================= VOLETS ================= */
+    .volets {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr
+    }
+
+    @media (min-width:680px) {
+      .volets {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media (min-width:1100px) {
+      .volets {
+        grid-template-columns: repeat(4, 1fr)
+      }
+    }
+
+    .volet {
+      background: #fff;
+      border: 2px solid transparent;
+      border-radius: var(--r-m);
+      padding: 1.4rem;
+      box-shadow: var(--shadow-1);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, filter .25s ease;
+      will-change: transform;
+    }
+
+    .volet:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-3);
+      border-color: var(--blue);
+      filter: saturate(1.02)
+    }
+
+    .volet .badge {
+      display: inline-block;
+      padding: .28rem .7rem;
+      background: rgba(12, 77, 162, .1);
+      color: var(--blue);
+      border-radius: var(--r);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .55rem
+    }
+
+    .volet .badge-danger {
+      display: inline-block;
+      padding: .28rem .7rem;
+      background: rgba(207, 23, 109, 0.1);
+      color: rgb(247, 69, 69);
+      border-radius: var(--r);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .55rem
+    }
+
+    .vicon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--r);
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      margin-bottom: .8rem;
+      box-shadow: 0 6px 18px rgba(12, 77, 162, .25);
+      transition: transform .25s ease
+    }
+
+    .volet:hover .vicon {
+      transform: translateY(-2px)
+    }
+
+    .volet h3 {
+      font-size: 1.28rem;
+      font-weight: 900;
+      margin: .2rem 0 .35rem
+    }
+
+    .volet p {
+      color: var(--grey)
+    }
+
+    /* ================= PLANNING ================= */
+    .days {
+      display: grid;
+      gap: 1.2rem
+    }
+
+    .day {
+      background: #fff;
+      border: 3px solid transparent;
+      border-radius: var(--r-m);
+      overflow: hidden;
+      box-shadow: var(--shadow-2);
+      transition: transform .25s ease, box-shadow .25s ease
+    }
+
+    .day:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-3)
+    }
+
+    .dhead {
+      padding: 2.6rem 1.6rem;
+      color: #fff;
+      position: relative;
+      overflow: hidden
+    }
+
+    .dhead::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-120%);
+      background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, .25) 40%, transparent 70%);
+      transition: transform .8s ease
+    }
+
+    .day:hover .dhead::after {
+      transform: translateX(120%)
+    }
+
+    .d1 .dhead {
+      background: linear-gradient(135deg, var(--dark), #1f2937)
+    }
+
+    .d2 .dhead {
+      background: linear-gradient(135deg, var(--blue), #0C4DA2)
+    }
+
+    .d3 .dhead {
+      background: linear-gradient(135deg, var(--yellow), #FDB515);
+      color: #0A1128
+    }
+
+    .dtitle {
+      font-weight: 900;
+      font-size: 1.25rem
+    }
+
+    .ddate {
+      font-weight: 900;
+      font-size: 1.05rem;
+      opacity: .95;
+      margin-bottom: .2rem
+    }
+
+    .dloc {
+      opacity: .9
+    }
+
+    .dsched {
+      padding: 1.2rem 1.6rem
+    }
+
+    .slot {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, .06);
+      transition: background .2s ease, padding-left .2s ease
+    }
+
+    .slot:hover {
+      background: rgba(12, 77, 162, .03);
+      padding-left: .6rem
+    }
+
+    .slot:last-child {
+      border-bottom: none
+    }
+
+    .stime {
+      font-weight: 800;
+      color: var(--blue)
+    }
+
+    .scontent h4 {
+      margin: .1rem 0 .35rem;
+      font-weight: 900
+    }
+
+    .scontent p {
+      color: var(--grey)
+    }
+
+    .scontent ul {
+      margin: .4rem 0 0 1.1rem;
+      color: var(--grey)
+    }
+
+    @media (max-width:720px) {
+      .slot {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* ================= GALERIE ================= */
+    .gallery {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+      /* Une image par ligne sur mobile */
+      padding: 2rem 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 colonnes sur tablette */
+        padding: 3rem 2rem;
+        gap: 2rem;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 colonnes sur desktop */
+        padding: 4rem 3rem;
+        gap: 2.5rem;
+      }
+    }
+
+    .ph {
+      aspect-ratio: 4/3;
+      border-radius: var(--r-m);
+      border: 3px dashed rgba(12, 77, 162, .22);
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: all .4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .ph img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .6s cubic-bezier(0.34, 1.56, 0.64, 1), filter .4s ease;
+    }
+
+    .ph::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(12, 77, 162, 0.1), rgba(59, 130, 246, 0.15));
+      opacity: 0;
+      transition: opacity .4s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .ph:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(12, 77, 162, .3),
+        0 10px 25px rgba(12, 77, 162, .2);
+      border-color: var(--blue);
+      filter: saturate(1.1);
+      border-width: 4px;
+    }
+
+    .ph:hover::before {
+      opacity: 1;
+    }
+
+    .ph:hover img {
+      transform: scale(1.15) rotate(2deg);
+      filter: brightness(1.05) contrast(1.05);
+    }
+
+    .ph:active {
+      transform: translateY(-8px) scale(1);
+      transition: all .15s ease;
+    }
+
+    /* ================= PARTENAIRES ================= */
+    .partners {
+      display: grid;
+      gap: .9rem;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center
+    }
+
+    @media (min-width:680px) {
+      .partners {
+        grid-template-columns: repeat(4, 1fr)
+      }
+    }
+
+    @media (min-width:1100px) {
+      .partners {
+        grid-template-columns: repeat(6, 1fr)
+      }
+    }
+
+    .partner {
+      background: #fff;
+      border: 1px solid var(--muted);
+      border-radius: var(--r-m);
+      height: 88px;
+      display: grid;
+      place-items: center;
+      padding: .6rem;
+      filter: grayscale(100%);
+      opacity: .92;
+      transition: filter .25s ease, opacity .25s ease, transform .25s ease, box-shadow .25s ease;
+      box-shadow: var(--shadow-1);
+    }
+
+    .partner:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-2)
+    }
+
+    .partner img {
+      max-height: 56px;
+      width: auto;
+      object-fit: contain
+    }
+
+    /* ================= FAQ ================= */
+    .faq {
+      background: #F7FAFF
+    }
+
+    .faq-grid {
+      max-width: 960px;
+      margin-inline: auto;
+      display: grid;
+      gap: 1rem
+    }
+
+    .q {
+      background: #fff;
+      border: 1px solid var(--muted);
+      border-radius: var(--r-m);
+      box-shadow: var(--shadow-1);
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .q:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-2)
+    }
+
+    .qbtn {
+      width: 100%;
+      text-align: left;
+      background: #fff;
+      border: none;
+      padding: 1rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+
+    .qbtn:hover {
+      background: #F9FBFF
+    }
+
+    .qbtn span {
+      font-weight: 900
+    }
+
+    .chev {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+      transition: transform .25s ease
+    }
+
+    .ans {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1rem;
+      transition: max-height .35s ease, padding .35s ease, opacity .35s ease;
+      opacity: 0;
+    }
+
+    .q.open .ans {
+      max-height: 420px;
+      padding: 0 1rem 1rem;
+      opacity: 1
+    }
+
+    .q.open .chev {
+      transform: rotate(90deg)
+    }
+
+    .ans p,
+    .ans ul {
+      color: var(--grey)
+    }
+
+    .ans ul {
+      margin: .4rem 0 0 1.1rem
+    }
+
+    .kbd {
+      display: inline-block;
+      border: 1px solid var(--muted);
+      padding: .1rem .35rem;
+      border-radius: var(--r-s);
+      font-size: .84rem;
+      background: #fff
+    }
+
+    /* ================= FOOTER (uni) ================= */
+    footer {
+      background: #0A1128;
+      color: #fff
+    }
+
+    .fgrid {
+      max-width: var(--max);
+      margin-inline: auto;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+      padding: 3rem 1.25rem 2rem;
+    }
+
+    @media (min-width:820px) {
+      .fgrid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        padding: 3rem 2rem 2rem
+      }
+    }
+
+    @media (min-width:1200px) {
+      .fgrid {
+        padding: 3rem 3rem 2rem
+      }
+    }
+
+    .fbrand {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-bottom: .6rem
+    }
+
+    .fbrand img {
+      height: 80px;
+      transition: transform .3s ease
+    }
+
+    .fbrand img:hover {
+      transform: scale(1.04)
+    }
+
+    .ftitle {
+      font-size: .85rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #FDB515;
+      margin-bottom: .8rem
+    }
+
+    .flinks {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    .flinks li {
+      margin: .55rem 0
+    }
+
+    .flinks a {
+      color: rgba(255, 255, 255, .85);
+      position: relative
+    }
+
+    .flinks a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      background: #fff;
+      transition: width .25s
+    }
+
+    .flinks a:hover::after {
+      width: 100%
+    }
+
+    .fbot {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1rem 1.25rem 1.6rem;
+      color: rgba(255, 255, 255, .75);
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      justify-content: space-between
+    }
+
+    @media (min-width:820px) {
+      .fbot {
+        padding-inline: 2rem
+      }
+    }
+
+    @media (min-width:1200px) {
+      .fbot {
+        padding-inline: 3rem
+      }
+    }
+
+    /* ================= STICKY / TOP ================= */
+    .sticky {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      display: flex;
+      gap: .6rem
+    }
+
+    .sticky .btn {
+      border-radius: var(--r-m);
+      animation: pulse 2.2s ease-in-out infinite
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(12, 77, 162, .35)
+      }
+
+      50% {
+        box-shadow: 0 0 0 18px rgba(12, 77, 162, 0)
+      }
+    }
+
+    .top {
+      position: fixed;
+      bottom: 18px;
+      left: 18px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--r-m);
+      background: #fff;
+      border: 1px solid var(--muted);
+      cursor: pointer;
+      transition: box-shadow .25s ease, transform .2s ease
+    }
+
+    .top:hover {
+      box-shadow: var(--shadow-2);
+      transform: translateY(-2px)
+    }
+
+    /* ================= REVEAL ================= */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s cubic-bezier(.22, .61, .36, 1), transform .6s cubic-bezier(.22, .61, .36, 1)
+    }
+
+    [data-reveal].on {
+      opacity: 1;
+      transform: none
+    }
+
+    /* ================= COOKIE ================= */
+    .cookie {
+      position: fixed;
+      inset: auto 0 0 0;
+      background: #111827;
+      color: #F9FAFB;
+      padding: 12px 16px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      z-index: 70;
+      flex-wrap: wrap
+    }
+
+    .cookie a {
+      color: #93C5FD;
+      text-decoration: underline
+    }
+
+    /* ================= REDUCED MOTION ================= */
+    @media (prefers-reduced-motion:reduce) {
+      * {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background -->
+  <div class="animated-bg" aria-hidden="true">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-wrap">
+      <div class="brand">
+        <!-- LOGO ACT : remplacez le src ci-dessous -->
+        <img src="LOGO ACT.png" alt="ACT — Accelerator for Creative Talent" />
+      </div>
+
+      <div class="nav-links" role="menubar" aria-label="Navigation principale">
+        <a role="menuitem" href="#why">Programme</a>
+        <a role="menuitem" href="#volets">Volets</a>
+        <a role="menuitem" href="#planning">Planning</a>
+        <a role="menuitem" href="#galerie">Galerie</a>
+        <a role="menuitem" href="#partenaires">Partenaires</a>
+        <a role="menuitem" href="#faq">FAQ</a>
+      </div>
+
+      <div class="nav-end">
+        <a class="nav-cta" href="https://forms.gle/6SEHk9zGw6eGp3bt9" target="_blank">S’inscrire</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="container">
+      <div data-reveal class="hero-tag">JCI IARIVO • ACT 2025</div>
+      <h1 class="hero-title" data-reveal>
+        <span class="hl">ACCELERATOR</span><br />FOR CREATIVE<br />TALENT
+      </h1>
+      <p class="hero-sub" data-reveal>Le plus grand concours d’expression scénique et de pitch entrepreneurial à
+        Madagascar.
+        Une plateforme pour former, challenger et révéler les talents qui façonnent l’avenir.</p>
+
+      <div class="hero-dates" data-reveal>
+        <div class="date-card date-1" data-tilt>
+          <div class="left">
+            <div class="date-num">15</div>
+            <div>
+              <div class="date-month">novembre</div>
+              <div class="date-label">Ateliers</div>
+            </div>
+          </div>
+          <div aria-hidden="true">→</div>
+        </div>
+        <div class="date-card date-2" data-tilt>
+          <div class="left">
+            <div class="date-num">21</div>
+            <div>
+              <div class="date-month">novembre</div>
+              <div class="date-label">Phase éliminatoire</div>
+            </div>
+          </div>
+          <div aria-hidden="true">→</div>
+        </div>
+        <div class="date-card date-3" data-tilt>
+          <div class="left">
+            <div class="date-num">29</div>
+            <div>
+              <div class="date-month">novembre</div>
+              <div class="date-label">Grande finale</div>
+            </div>
+          </div>
+          <div aria-hidden="true">★</div>
+        </div>
+      </div>
+
+      <div class="hero-cta" data-reveal>
+        <a class="btn primary" href="https://forms.gle/6SEHk9zGw6eGp3bt9" target="_blank">S’inscrire
+          maintenant</a>
+        <a class="btn secondary" href="#planning">Voir le planning</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROGRAMME : Pourquoi & Comment -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="section-h" data-reveal>
+        <div class="tag">Le programme</div>
+        <h2 class="title">Pourquoi et comment</h2>
+        <p class="sub">ACT accélère l’expression scénique et l’esprit entrepreneurial avec un parcours clair :
+          apprendre, se mesurer, briller, puis être accompagné.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="lead" data-reveal data-tilt>
+          <h3>Pourquoi</h3>
+          <p>Donner de la scène aux talents malgaches : développer la confiance, la prise de parole,
+            l’impact scénique et l’esprit d’initiative, tout en connectant aux réseaux JCI et aux
+            opportunités concrètes.</p>
+
+          <div class="steps" style="margin-top:1rem">
+            <div class="step">
+              <div class="icon">1</div>
+              <div><strong>Apprendre</strong><br />Ateliers intensifs (voix, présence, structure, pitch
+                deck).</div>
+            </div>
+            <div class="step">
+              <div class="icon">2</div>
+              <div><strong>Se mesurer</strong><br />Épreuves éliminatoires avec grilles transparentes.
+              </div>
+            </div>
+            <div class="step">
+              <div class="icon">3</div>
+              <div><strong>Briller</strong><br />Grande finale sur scène pro, jury d’experts, visibilité.
+              </div>
+            </div>
+            <div class="step">
+              <div class="icon">4</div>
+              <div><strong>Être accompagné</strong><br />Réseau, mentorat, amorçage pour les meilleurs
+                projets.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefits" data-reveal data-tilt>
+          <h3>Ce que vous gagnez</h3>
+          <div class="tick">Retour d’experts et progression rapide.</div>
+          <div class="tick">Confiance scénique & portfolio média.</div>
+          <div class="tick">Prix, visibilité et réseautage.</div>
+          <div class="tick">Pour les projets : fonds de démarrage & connexions.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOLETS -->
+  <section id="volets">
+    <div class="container">
+      <div class="section-h" data-reveal>
+        <div class="tag">Les 4 volets</div>
+        <h2 class="title">Choisissez votre discipline</h2>
+        <p class="sub">Quatre catégories pour exprimer votre talent et votre créativité.</p>
+      </div>
+
+      <div class="volets">
+        <article class="volet" data-reveal data-tilt>
+          <div class="vicon" style="background:var(--blue)"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"
+              aria-hidden="true">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
+              <path
+                d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
+            </svg></div>
+          <span class="badge">AOD</span>
+          <h3>Art oratoire</h3>
+          <p>Éloquence, clarté, storytelling. Évaluation sur la structure, l’impact et la présence scénique.
+          </p>
+        </article>
+
+        <article class="volet" data-reveal data-tilt>
+          <div class="vicon" style="background:var(--yellow)"><svg width="28" height="28" viewBox="0 0 24 24"
+              fill="#0A1128" aria-hidden="true">
+              <path
+                d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z" />
+            </svg></div>
+          <span class="badge">AOD</span>
+          <h3>Débat</h3>
+          <p>Argumentation, pensée critique, esprit d’équipe. Gestion du temps et art de la réfutation.</p>
+        </article>
+
+        <article class="volet" data-reveal data-tilt>
+          <div class="vicon" style="background:#1f2937"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"
+              aria-hidden="true">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
+            </svg></div>
+          <span class="badge">Expression scénique</span>
+          <h3>Slam • poésie • théâtre</h3>
+          <p>Création scénique : voix, rythme, texte original. Émotion & projection publique.</p>
+        </article>
+
+        <article class="volet" data-reveal data-tilt>
+          <div class="vicon" style="background:var(--blue)"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"
+              aria-hidden="true">
+              <path d="M12 2 2 7v10c0 5.55 3.84 10.74 9 12 5.16-1 9-6.45 9-12V7l-8-5z" />
+            </svg></div>
+          <span class="badge-danger">Inscriptions closes</span>
+          <h3>Pitch entrepreneurial</h3>
+          <p>Idée alignée inclusion de genre, innovation/tech ou développement durable. MVP en perspective.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANNING -->
+  <section id="planning" class="programme">
+    <div class="container">
+      <div class="section-h" data-reveal>
+        <div class="tag">Planning détaillé</div>
+        <h2 class="title">Programme complet</h2>
+        <p class="sub">Trois journées intensives pour découvrir, apprendre et briller.</p>
+      </div>
+
+      <div class="days">
+        <!-- Journée 1 : Ateliers & Séance d'information -->
+        <article class="day d1" data-reveal data-tilt>
+          <div class="dhead">
+            <div class="ddate">15 novembre 2025</div>
+            <div class="dtitle">Séance d'information & Ateliers</div>
+            <div class="dloc">ODC Orange Digital Center Gare Soarano</div>
+          </div>
+          <div class="dsched">
+            <div class="slot">
+              <div class="stime">09:00–10:00</div>
+              <div class="scontent">
+                <h4>Séance d'information</h4>
+                <p>Présentation du concours ACT, des critères d’évaluation et du règlement, suivie d’une session de
+                  questions-réponses avec les participants.</p>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">10:00–12:00</div>
+              <div class="scontent">
+                <h4>Ateliers pratiques</h4>
+                <ul>
+                  <li>Expression orale & éloquence</li>
+                  <li>Débat & argumentation</li>
+                  <li>Slam / Poésie / Théâtre</li>
+                  <li>Pitch entrepreneurial</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Journée 2 : Phase éliminatoire -->
+        <article class="day d2" data-reveal data-tilt>
+          <div class="dhead">
+            <div class="ddate">21 novembre 2025</div>
+            <div class="dtitle">Phase éliminatoire</div>
+            <div class="dloc">QG Tanora Ankorondrano</div>
+          </div>
+          <div class="dsched">
+            <div class="slot">
+              <div class="stime">08:00–08:30</div>
+              <div class="scontent">
+                <h4>Accueil & enregistrement</h4>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">08:30–09:00</div>
+              <div class="scontent">
+                <h4>Présentation du jury & ouverture officielle</h4>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">09:00–12:00</div>
+              <div class="scontent">
+                <h4>Présentations – Pitchs entrepreneuriaux</h4>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">12:00–13:30</div>
+              <div class="scontent">
+                <h4>Pause déjeuner</h4>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">13:30–16:30</div>
+              <div class="scontent">
+                <h4>Éliminatoires – Prise de parole en public</h4>
+                <ul>
+                  <li>Art oratoire</li>
+                  <li>Débat</li>
+                  <li>Slam / Poésie / Théâtre</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">16:45–17:00</div>
+              <div class="scontent">
+                <h4>Annonce des finalistes</h4>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Journée 3 : Grande finale -->
+        <article class="day d3" data-reveal data-tilt>
+          <div class="dhead">
+            <div class="ddate">29 novembre 2025</div>
+            <div class="dtitle">Grande finale</div>
+            <div class="dloc">ODC Orange Digital Center Gare Soarano</div>
+          </div>
+          <div class="dsched">
+            <div class="slot">
+              <div class="stime">08:00–08:30</div>
+              <div class="scontent">
+                <h4>Accueil & enregistrement des participants</h4>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">08:30–12:30</div>
+              <div class="scontent">
+                <h4>Phase finale – Présentations & démonstrations</h4>
+                <ul>
+                  <li>Art oratoire</li>
+                  <li>Débat</li>
+                  <li>Slam / Poésie / Théâtre</li>
+                  <li>Pitch entrepreneurial</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">12:30–14:30</div>
+              <div class="scontent">
+                <h4>Pause déjeuner</h4>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">14:30–15:00</div>
+              <div class="scontent">
+                <h4>Accueil des invités & installation</h4>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">15:00–16:00</div>
+              <div class="scontent">
+                <h4>Cérémonie officielle & démonstrations</h4>
+                <ul>
+                  <li>Présentation du concours & remerciements par les directeurs</li>
+                  <li>Discours officiels (JCI, partenaires, ministère)</li>
+                  <li>Débat rapide – 10 minutes</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">16:00–16:30</div>
+              <div class="scontent">
+                <h4>Remise des prix et trophées</h4>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="stime">16:30–17:00</div>
+              <div class="scontent">
+                <h4>Cocktail & réseautage de clôture</h4>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- GALERIE -->
+  <div class="gallery" data-reveal>
+    <div class="ph" data-tilt>
+      <img src="DSC_0741_1_11zon.jpg" alt="Atelier oratoire">
+    </div>
+    <div class="ph" data-tilt>
+      <img src="DSC_0968_6_11zon.jpg" alt="Moment débat">
+    </div>
+    <div class="ph" data-tilt>
+      <img src="DSC_0889_5_11zon.jpg" alt="Slam sur scène">
+    </div>
+    <div class="ph" data-tilt>
+      <img src="DSC_0797_2_11zon.jpg" alt="Session pitch">
+    </div>
+    <div class="ph" data-tilt>
+      <img src="DSC_0800_3_11zon.jpg" alt="Jury • délibération">
+    </div>
+    <div class="ph" data-tilt>
+      <img src="DSC_0862_4_11zon.jpg" alt="Remise de prix">
+    </div>
+  </div>
+
+  <!-- PARTENAIRES -->
+  <section id="partenaires">
+    <div class="container">
+      <div class="section-h" data-reveal>
+        <div class="tag">Écosystème</div>
+        <h2 class="title">Partenaires & soutiens</h2>
+        <p class="sub">Merci à celles et ceux qui rendent l’initiative possible.</p>
+      </div>
+
+      <div class="partners" aria-label="Logos partenaires" data-reveal>
+        <!-- Remplacez ces src par vos véritables logos -->
+        <div class="partner" data-tilt><img src="MJS.png" alt="MJS" /></div>
+        <div class="partner" data-tilt><img src="logo-orange-eo-anilanao.webp" alt="ORANGE MADAGASCAR" /></div>
+        <div class="partner" data-tilt><img src="Asandrato logo.jpg" alt="ASANDRATO" /></div>
+        <div class="partner" data-tilt><img src="JejooLogo01_FondBlanc.png" alt="JEJOO" /></div>
+        <div class="partner" data-tilt><img src="482239560_691987393152160_8713940779878070345_n.jpg" alt="HappyYOU" />
+        </div>
+        <div class="partner" data-tilt><img src="téléchargement.png" alt="Le JE" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="section-h" data-reveal>
+        <div class="tag">Questions</div>
+        <h2 class="title">Foire aux questions</h2>
+        <p class="sub">Tout pour bien préparer votre participation.</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="q" data-reveal>
+          <button class="qbtn" aria-expanded="false">
+            <span>Qui peut participer ?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 5l8 7-8 7" stroke="#0C4DA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="ans">
+            <p>Jeunes de 18 à 40 ans : étudiants, diplômés, orateurs, artistes, porteurs d’idées de projet.
+            </p>
+          </div>
+        </div>
+
+        <div class="q" data-reveal>
+          <button class="qbtn" aria-expanded="false">
+            <span>Quelles sont les dates ?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 5l8 7-8 7" stroke="#0C4DA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="ans">
+            <p>15 novembre 2025 (ateliers), 21 novembre 2025 (phase éliminatoire), 29 novembre 2025 (grande
+              finale) — Antananarivo.</p>
+          </div>
+        </div>
+
+        <div class="q" data-reveal>
+          <button class="qbtn" aria-expanded="false">
+            <span>Quels sont les volets ?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 5l8 7-8 7" stroke="#0C4DA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="ans">
+            <ul>
+              <li>Art oratoire</li>
+              <li>Débat</li>
+              <li>Slam/poésie/théâtre</li>
+              <li>Pitch entrepreneurial</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="q" data-reveal>
+          <button class="qbtn" aria-expanded="false">
+            <span>Comment s’inscrire ?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 5l8 7-8 7" stroke="#0C4DA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="ans">
+            <p>Utilisez le bouton <span class="kbd">S’inscrire</span> en haut à droite ou dans la section
+              héros pour nous contacter par email.</p>
+          </div>
+        </div>
+
+        <div class="q" data-reveal>
+          <button class="qbtn" aria-expanded="false">
+            <span>Quels critères d’évaluation ?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 5l8 7-8 7" stroke="#0C4DA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="ans">
+            <ul>
+              <li>Clarté, structure et impact</li>
+              <li>Présence scénique, gestion du temps</li>
+              <li>Créativité et originalité</li>
+              <li>Innovation, faisabilité, impact (pitch)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand">
+          <!-- LOGO JCI : remplacez le src ci-dessous -->
+          <img src="JCI-Iarivo.png" alt="JCI IARIVO" />
+          <strong>ACT — JCI IARIVO</strong>
+        </div>
+        <p class="sub" style="color:rgba(255,255,255,.85)">Concours d’expression scénique & pitch
+          entrepreneurial. Former, challenger, révéler.</p>
+        <a class="nav-cta" href="https://forms.gle/6SEHk9zGw6eGp3bt9" target="_blank"
+          style="display:inline-block; margin-top:.6rem">S’inscrire</a>
+      </div>
+
+      <div>
+        <div class="ftitle">Programme</div>
+        <ul class="flinks">
+          <li><a href="#why">Pourquoi & comment</a></li>
+          <li><a href="#volets">Volets</a></li>
+          <li><a href="#planning">Planning</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="ftitle">Ressources</div>
+        <ul class="flinks">
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="mailto:jciiarivo@gmail.com?subject=Media%20ACT%202025">Presse & médias</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="ftitle">Contact</div>
+        <ul class="flinks">
+          <li><a href="mailto:jciiarivo@gmail.com">jciiarivo@gmail.com</a></li>
+          <li><a href="tel:+261329969216">+261 32 99 692 16</a></li>
+          <li><a href="https://www.facebook.com/JCIIarivo" target="_blank" rel="noopener">Facebook JCI
+              IARIVO</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2025 ACT — Accelerator for Creative Talent</span>
+      <span>Antananarivo, Madagascar</span>
+    </div>
+  </footer>
+
+  <!-- STICKY & TOP -->
+  <div class="sticky" role="region" aria-label="Actions rapides">
+    <a class="btn primary" href="tel:+261321259941">Appeler</a>
+    <a class="btn secondary" href="https://forms.gle/6SEHk9zGw6eGp3bt9" target="_blank">S’inscrire</a>
+  </div>
+  <button class="top" aria-label="Remonter en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <!-- COOKIE -->
+  <div id="cookie" class="cookie" role="region" aria-label="Cookies">
+    <span>Nous utilisons des cookies techniques pour améliorer l’expérience.</span>
+    <div style="margin-left:auto;display:flex;gap:8px">
+      <button class="btn secondary" onclick="cookieDecline()">Refuser</button>
+      <button class="btn primary" onclick="cookieAccept()">Accepter</button>
+    </div>
+  </div>
+
+  <!-- JSON-LD (FAQ + Events) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"Qui peut participer ?","acceptedAnswer":{"@type":"Answer","text":"Jeunes de 18 à 40 ans : étudiants, diplômés, orateurs, artistes, porteurs d’idées de projet."}},
+        {"@type":"Question","name":"Quelles sont les dates ?","acceptedAnswer":{"@type":"Answer","text":"15 novembre 2025 (ateliers), 21 novembre 2025 (phase éliminatoire), 29 novembre 2025 (grande finale)."}},
+        {"@type":"Question","name":"Quels sont les volets ?","acceptedAnswer":{"@type":"Answer","text":"Art oratoire ; Débat ; Slam/poésie/théâtre ; Pitch entrepreneurial."}},
+        {"@type":"Question","name":"Comment s’inscrire ?","acceptedAnswer":{"@type":"Answer","text":"Cliquez sur S’inscrire pour nous contacter par email."}}
+      ]},
+      {"@type":"Event","name":"ACT — Ateliers","startDate":"2025-11-15","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Antananarivo","addressCountry":"MG"}}},
+      {"@type":"Event","name":"ACT — Éliminatoires","startDate":"2025-11-21","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Antananarivo","addressCountry":"MG"}}},
+      {"@type":"Event","name":"ACT — Finale","startDate":"2025-11-29","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Antananarivo","addressCountry":"MG"}}}
+    ]
+  }
+  </script>
+
+  <!-- JS: reveal, faq, cookie, subtle parallax/tilt -->
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+    // FAQ toggles
+    document.querySelectorAll('.q').forEach(q => {
+      const btn = q.querySelector('.qbtn');
+      btn.addEventListener('click', () => {
+        const isOpen = q.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+
+    // Cookie
+    function cookieAccept() { localStorage.setItem('cookie', '1'); document.getElementById('cookie').style.display = 'none' }
+    function cookieDecline() { localStorage.setItem('cookie', '0'); document.getElementById('cookie').style.display = 'none' }
+    (function () { if (localStorage.getItem('cookie') !== null) { document.getElementById('cookie').style.display = 'none' } })();
+
+    // Subtle parallax tilt on hover (no external lib)
+    (function () {
+      const els = [...document.querySelectorAll('[data-tilt]')];
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+      els.forEach(el => {
+        el.style.transformStyle = 'preserve-3d';
+        el.addEventListener('mousemove', (e) => {
+          const r = el.getBoundingClientRect();
+          const cx = r.left + r.width / 2;
+          const cy = r.top + r.height / 2 + window.scrollY;
+          const dx = (e.pageX - cx) / r.width;
+          const dy = (e.pageY - cy) / r.height;
+          el.style.transform = `rotateX(${(-dy * 6).toFixed(2)}deg) rotateY(${(dx * 6).toFixed(2)}deg) translateY(-4px)`;
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = '';
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
