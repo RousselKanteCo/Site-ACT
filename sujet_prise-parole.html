@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Thématiques | ACT - Accelerator for Creative Talent</title>
+        <meta name="description"
+            content="Découvrez les thématiques du concours ACT : Art oratoire, Théâtre et Débat mis en scène. Choisissez votre sujet et préparez-vous à briller." />
+        <meta name="theme-color" content="#0C4DA2" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap"
+            rel="stylesheet" />
+
+        <style>
+    /* ================= TOKENS / RESET ================= */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    :root {
+      --blue: #0C4DA2;
+      --yellow: #FDB515;
+      --dark: #0A1128;
+      --ink: #0F1B2D;
+      --grey: #6B7280;
+      --muted: #E5E7EB;
+      --white: #FFFFFF;
+      --bg: #FFFDF5;
+      --r-s: 4px;
+      --r: 6px;
+      --r-m: 8px;
+      --max: 1400px;
+      --shadow-1: 0 6px 24px rgba(0, 0, 0, .06);
+      --shadow-2: 0 10px 32px rgba(0, 0, 0, .08);
+      --shadow-3: 0 18px 48px rgba(0, 0, 0, .15);
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.7;
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #60A5FA;
+      outline-offset: 3px;
+      border-radius: var(--r)
+    }
+
+    .container {
+      max-width: var(--max);
+      margin-inline: auto;
+      padding-inline: 1.25rem
+    }
+
+    @media (min-width:768px) {
+      .container {
+        padding-inline: 2rem
+      }
+    }
+
+    @media (min-width:1200px) {
+      .container {
+        padding-inline: 3rem
+      }
+    }
+
+    /* ================= BACKGROUND ================= */
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      background:
+        radial-gradient(1200px 800px at 15% 20%, rgba(12, 77, 162, .12), transparent 60%),
+        radial-gradient(1000px 700px at 85% 80%, rgba(253, 181, 21, .18), transparent 60%),
+        linear-gradient(135deg, #F6FAFF 0%, #FFFDF1 100%);
+      background-size: 120% 120%;
+      animation: bgShift 22s ease-in-out infinite;
+    }
+
+    @keyframes bgShift {
+
+      0%,
+      100% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+    }
+
+    .shape {
+      position: absolute;
+      opacity: .08;
+      animation: float 20s ease-in-out infinite;
+      will-change: transform
+    }
+
+    .shape.s1 {
+      width: 320px;
+      height: 320px;
+      background: var(--blue);
+      border-radius: 50%;
+      top: -160px;
+      left: 8%
+    }
+
+    .shape.s2 {
+      width: 240px;
+      height: 240px;
+      background: var(--yellow);
+      right: 6%;
+      bottom: 10%;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+    }
+
+    .shape.s3 {
+      width: 200px;
+      height: 200px;
+      background: var(--blue);
+      left: 70%;
+      top: 55%;
+      border-radius: 16%
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translate(0, 0)
+      }
+
+      50% {
+        transform: translate(30px, -18px)
+      }
+    }
+
+    /* ================= NAV ================= */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(12, 77, 162, .12);
+      animation: navSlide .6s ease-out both;
+    }
+
+    @keyframes navSlide {
+      from {
+        transform: translateY(-100%);
+        opacity: 0
+      }
+
+      to {
+        transform: none;
+        opacity: 1
+      }
+    }
+
+    .nav-wrap {
+      max-width: var(--max);
+      margin-inline: auto;
+      padding: .75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem
+    }
+
+    @media (min-width:768px) {
+      .nav-wrap {
+        padding: 1rem 2rem
+      }
+    }
+
+    @media (min-width:1200px) {
+      .nav-wrap {
+        padding: 1rem 3rem
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex: 1
+    }
+
+    .brand img {
+      height: 80px;
+      width: auto;
+      transition: transform .3s ease
+    }
+
+    .brand img:hover {
+      transform: scale(1.03)
+    }
+
+    .nav-links {
+      display: none;
+      gap: 1.25rem;
+      margin-inline: 1rem
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      font-weight: 600;
+      position: relative;
+      padding: .4rem .1rem;
+      transition: color .2s ease
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      background: var(--blue);
+      transition: width .25s;
+      border-radius: var(--r-s)
+    }
+
+    .nav-links a:hover {
+      color: var(--blue)
+    }
+
+    .nav-links a:hover::after {
+      width: 100%
+    }
+
+    .nav-cta {
+      position: relative;
+      overflow: hidden;
+      padding: .65rem 1.2rem;
+      background: var(--yellow);
+      color: #fff;
+      font-weight: 800;
+      border-radius: var(--r-m);
+      box-shadow: 0 6px 18px rgba(253, 181, 21, .30);
+      border: 2px solid transparent;
+      white-space: nowrap;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .nav-cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-120%);
+      background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, .45) 35%, transparent 70%);
+      transition: transform .6s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(12, 77, 162, .28);
+      filter: saturate(1.05)
+    }
+
+    .nav-cta:hover::after {
+      transform: translateX(120%)
+    }
+
+    .nav-end {
+      display: flex;
+      align-items: center;
+      gap: .8rem
+    }
+
+    @media (min-width:992px) {
+      .nav-links {
+        display: flex
+      }
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      min-height: 50vh;
+      display: grid;
+      place-items: center;
+      padding: 9rem 0 3rem
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: .5rem 1rem;
+      border: 2px solid rgba(12, 77, 162, .2);
+      border-radius: var(--r);
+      background: linear-gradient(135deg, rgba(12, 77, 162, .06), rgba(253, 181, 21, .06));
+      font-size: .85rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+      animation: fadeUp .6s .2s both;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      font-weight: 900;
+      color: var(--dark);
+      margin: 0 0 1rem;
+      animation: fadeUp .6s .35s both;
+    }
+
+    .hero-title .hl {
+      color: var(--blue);
+      position: relative
+    }
+
+    .hero-title .hl::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: .15em;
+      width: 100%;
+      height: .45em;
+      background: var(--yellow);
+      opacity: .32;
+      border-radius: var(--r-s)
+    }
+
+    .hero-sub {
+      max-width: 760px;
+      color: var(--grey);
+      font-size: 1.05rem;
+      animation: fadeUp .6s .5s both
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    /* ================= SECTIONS ================= */
+    section {
+      padding: 4rem 0
+    }
+
+    .section-h {
+      text-align: center;
+      margin-bottom: 3rem
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--blue)
+    }
+
+    .title {
+      font-size: clamp(1.8rem, 4.2vw, 3rem);
+      font-weight: 900;
+      margin: .25rem 0
+    }
+
+    .sub {
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--grey)
+    }
+
+    /* ================= THEME CARDS ================= */
+    .theme-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width:768px) {
+      .theme-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    .theme-card {
+      background: #fff;
+      border: 2px solid transparent;
+      border-radius: var(--r-m);
+      padding: 2rem;
+      box-shadow: var(--shadow-1);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .theme-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--yellow));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    .theme-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-3);
+      border-color: var(--blue);
+    }
+
+    .theme-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .theme-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.4rem;
+      border-radius: var(--r);
+      margin-bottom: 1rem;
+      box-shadow: 0 6px 18px rgba(12, 77, 162, .25);
+    }
+
+    .theme-card h3 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin: 0 0 1rem;
+      color: var(--dark);
+      line-height: 1.4;
+    }
+
+    .theme-card p {
+      color: var(--grey);
+      margin: 0;
+      font-size: .95rem;
+    }
+
+    /* ================= CATEGORY SECTIONS ================= */
+    .category-section {
+      margin-bottom: 5rem;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 3px solid var(--blue);
+    }
+
+    .category-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--blue);
+      border-radius: var(--r);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 24px rgba(12, 77, 162, .3);
+    }
+
+    .category-header h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 900;
+      margin: 0;
+      color: var(--dark);
+    }
+
+    .category-badge {
+      display: inline-block;
+      padding: .4rem .9rem;
+      background: rgba(12, 77, 162, .1);
+      color: var(--blue);
+      border-radius: var(--r);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-left: auto;
+    }
+
+    .category-intro {
+      background: #F7FAFF;
+      border-left: 4px solid var(--blue);
+      padding: 1.5rem;
+      border-radius: var(--r-m);
+      margin-bottom: 2rem;
+    }
+
+    .category-intro p {
+      margin: 0;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+
+    .category-intro strong {
+      color: var(--dark);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #0A1128;
+      color: #fff
+    }
+
+    .fgrid {
+      max-width: var(--max);
+      margin-inline: auto;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+      padding: 3rem 1.25rem 2rem;
+    }
+
+    @media (min-width:820px) {
+      .fgrid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        padding: 3rem 2rem 2rem
+      }
+    }
+
+    @media (min-width:1200px) {
+      .fgrid {
+        padding: 3rem 3rem 2rem
+      }
+    }
+
+    .fbrand {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-bottom: .6rem
+    }
+
+    .fbrand img {
+      height: 80px;
+      transition: transform .3s ease
+    }
+
+    .fbrand img:hover {
+      transform: scale(1.04)
+    }
+
+    .ftitle {
+      font-size: .85rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #FDB515;
+      margin-bottom: .8rem
+    }
+
+    .flinks {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    .flinks li {
+      margin: .55rem 0
+    }
+
+    .flinks a {
+      color: rgba(255, 255, 255, .85);
+      position: relative
+    }
+
+    .flinks a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      background: #fff;
+      transition: width .25s
+    }
+
+    .flinks a:hover::after {
+      width: 100%
+    }
+
+    .fbot {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1rem 1.25rem 1.6rem;
+      color: rgba(255, 255, 255, .75);
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      justify-content: space-between
+    }
+
+    @media (min-width:820px) {
+      .fbot {
+        padding-inline: 2rem
+      }
+    }
+
+    @media (min-width:1200px) {
+      .fbot {
+        padding-inline: 3rem
+      }
+    }
+
+    /* ================= TOP BUTTON ================= */
+    .top {
+      position: fixed;
+      bottom: 18px;
+      left: 18px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--r-m);
+      background: #fff;
+      border: 1px solid var(--muted);
+      cursor: pointer;
+      transition: box-shadow .25s ease, transform .2s ease;
+      z-index: 999;
+    }
+
+    .top:hover {
+      box-shadow: var(--shadow-2);
+      transform: translateY(-2px)
+    }
+
+    /* ================= REVEAL ================= */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s cubic-bezier(.22, .61, .36, 1), transform .6s cubic-bezier(.22, .61, .36, 1)
+    }
+
+    [data-reveal].on {
+      opacity: 1;
+      transform: none
+    }
+
+    /* ================= REDUCED MOTION ================= */
+    @media (prefers-reduced-motion:reduce) {
+      * {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important
+      }
+    }
+  </style>
+    </head>
+
+    <body>
+        <!-- Background -->
+        <div class="animated-bg" aria-hidden="true">
+            <div class="shape s1"></div>
+            <div class="shape s2"></div>
+            <div class="shape s3"></div>
+        </div>
+
+        <!-- NAV -->
+        <nav>
+            <div class="nav-wrap">
+                <div class="brand">
+                    <a href="index.html">
+                        <img src="LOGO ACT.png"
+                            alt="ACT – Accelerator for Creative Talent" />
+                    </a>
+                </div>
+
+                <div class="nav-links" role="menubar"
+                    aria-label="Navigation principale">
+                    <a role="menuitem" href="index.html#why">Programme</a>
+                    <a role="menuitem" href="index.html#volets">Volets</a>
+                    <a role="menuitem" href="index.html#planning">Planning</a>
+                    <a role="menuitem"
+                        href="index.html#partenaires">Partenaires</a>
+                    <a role="menuitem" href="index.html#faq">FAQ</a>
+                </div>
+
+                <div class="nav-end">
+                    <a class="nav-cta"
+                        href="https://forms.gle/6SEHk9zGw6eGp3bt9"
+                        target="_blank">S'inscrire</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <header class="hero">
+            <div class="container">
+                <div data-reveal class="hero-tag">Règlement complet</div>
+                <h1 class="hero-title" data-reveal>
+                    Volet <span class="hl">Prise de parole</span><br />en public
+                </h1>
+                <p class="hero-sub" data-reveal>
+                    Une masterclass d'expression scénique et orale pour
+                    maîtriser votre parole, exprimer vos émotions et captiver le
+                    public. Découvrez le règlement complet des trois formats :
+                    Art oratoire, Théâtre et Débat mis en scène.
+                </p>
+            </div>
+        </header>
+
+        <!-- INTRODUCTION -->
+        <section style="background: #F7FAFF;">
+            <div class="container">
+                <div data-reveal style="max-width: 900px; margin: 0 auto;">
+                    <h2
+                        style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 900; margin-bottom: 1.5rem; text-align: center;">Objectif
+                        du concours</h2>
+                    <p
+                        style="font-size: 1.05rem; line-height: 1.8; color: var(--grey); margin-bottom: 1.5rem;">
+                        Le concours vise à proposer une véritable masterclass
+                        d'expression scénique et orale. L'objectif principal est
+                        de permettre aux participants de :
+                    </p>
+                    <div style="display: grid; gap: 1rem; margin-top: 2rem;">
+                        <div
+                            style="background: #fff; padding: 1.25rem; border-radius: var(--r-m); border-left: 4px solid var(--blue);">
+                            <p style="margin: 0; color: var(--grey);">✓
+                                Maîtriser leur parole et leur présence sur
+                                scène</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.25rem; border-radius: var(--r-m); border-left: 4px solid var(--blue);">
+                            <p style="margin: 0; color: var(--grey);">✓ Exprimer
+                                des émotions fortes et cohérentes avec le
+                                message</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.25rem; border-radius: var(--r-m); border-left: 4px solid var(--blue);">
+                            <p style="margin: 0; color: var(--grey);">✓
+                                Construire un discours structuré et
+                                percutant</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.25rem; border-radius: var(--r-m); border-left: 4px solid var(--blue);">
+                            <p style="margin: 0; color: var(--grey);">✓ Capter,
+                                maintenir et relancer l'attention du public</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.25rem; border-radius: var(--r-m); border-left: 4px solid var(--blue);">
+                            <p style="margin: 0; color: var(--grey);">✓
+                                Respecter un cadre précis, notamment le temps
+                                imparti</p>
+                        </div>
+                    </div>
+                    <p
+                        style="font-size: 1.05rem; line-height: 1.8; color: var(--grey); margin-top: 2rem; text-align: center; font-weight: 600;">
+                        Tout le dispositif est conçu pour évaluer la capacité
+                        des participants à allier fond, forme, émotion,
+                        créativité et rigueur.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ART ORATOIRE -->
+        <section>
+            <div class="container">
+                <div class="category-section" data-reveal>
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24"
+                                fill="#fff" aria-hidden="true">
+                                <path
+                                    d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
+                                <path
+                                    d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
+                            </svg>
+                        </div>
+                        <h2>Catégorie 1 : Art oratoire</h2>
+                        <span class="category-badge">Individuel • 100
+                            points</span>
+                    </div>
+
+                    <div class="category-intro">
+                        <p><strong>Concept général :</strong> L'art oratoire
+                            évalue la capacité d'un orateur à développer une
+                            réflexion solide autour d'un thème, défendre une
+                            position structurée, utiliser la scène, la voix et
+                            le corps pour renforcer le message, et créer un
+                            véritable moment d'expression scénique, pas
+                            seulement un discours académique. L'axe central : un
+                            discours structuré, vivant, incarné, qui marque le
+                            public.</p>
+                    </div>
+
+                    <!-- Phase éliminatoire -->
+                    <div
+                        style="background: #F7FAFF; padding: 2rem; border-radius: var(--r-m); margin-bottom: 2rem;"
+                        data-reveal>
+                        <h3
+                            style="font-size: 1.4rem; font-weight: 900; color: var(--dark); margin: 0 0 1rem;">Phase
+                            éliminatoire • 50 points</h3>
+                        <div style="display: grid; gap: 1rem;">
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Format
+                                    :</strong> Prestation individuelle de 7
+                                minutes</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Préparation
+                                    :</strong> 7 jours</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Choix :</strong>
+                                10 thématiques proposées à l'avance</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Structure
+                                    :</strong> Au choix (défense d'une position
+                                pour/contre, thèse-antithèse-synthèse, ou autre
+                                structure cohérente)</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.5rem; border-radius: var(--r); margin-top: 1.5rem; border: 2px solid var(--blue);">
+                            <p
+                                style="margin: 0 0 0.5rem; font-weight: 700; color: var(--dark);">Éléments
+                                évalués :</p>
+                            <ul
+                                style="margin: 0; padding-left: 1.5rem; color: var(--grey);">
+                                <li>Fond : profondeur des idées, pertinence des
+                                    arguments</li>
+                                <li>Forme : structure du discours, clarté,
+                                    logique</li>
+                                <li>Expression scénique : posture, regard,
+                                    utilisation de l'espace</li>
+                                <li>Émotion : intensité, sincérité, adéquation
+                                    avec le thème</li>
+                                <li>Captation du public : attention, impact,
+                                    mémorisation</li>
+                                <li>Respect du thème et du temps imparti</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase finale -->
+                    <div
+                        style="background: #FFF9E6; padding: 2rem; border-radius: var(--r-m); margin-bottom: 2rem;"
+                        data-reveal>
+                        <h3
+                            style="font-size: 1.4rem; font-weight: 900; color: var(--dark); margin: 0 0 1rem;">Phase
+                            finale • 30 points</h3>
+                        <div style="display: grid; gap: 1rem;">
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Format
+                                    :</strong> Discours de 5 minutes</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Préparation
+                                    :</strong> 7 jours</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Contraintes
+                                    :</strong> Thème imposé, position imposée,
+                                contraintes intégrées (angle, style, mots
+                                obligatoires, etc.)</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.5rem; border-radius: var(--r); margin-top: 1.5rem; border: 2px solid var(--yellow);">
+                            <p
+                                style="margin: 0 0 0.5rem; font-weight: 700; color: var(--dark);">Éléments
+                                évalués :</p>
+                            <ul
+                                style="margin: 0; padding-left: 1.5rem; color: var(--grey);">
+                                <li>Capacité à défendre une position
+                                    imposée</li>
+                                <li>Intégration des contraintes (forme, angle,
+                                    vocabulaire)</li>
+                                <li>Qualité argumentative et cohérence
+                                    globale</li>
+                                <li>Qualité de la langue et précision des
+                                    mots</li>
+                                <li>Expression scénique et émotion</li>
+                                <li>Respect du temps imparti</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Improvisation -->
+                    <div
+                        style="background: #FFE8E8; padding: 2rem; border-radius: var(--r-m); margin-bottom: 2rem;"
+                        data-reveal>
+                        <h3
+                            style="font-size: 1.4rem; font-weight: 900; color: var(--dark); margin: 0 0 1rem;">Improvisation
+                            • 20 points</h3>
+                        <div style="display: grid; gap: 1rem;">
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Quand :</strong>
+                                À la fin de la prestation finale</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Préparation
+                                    :</strong> 1 minute</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Durée :</strong>
+                                2 minutes</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Thème :</strong>
+                                Imposé et lié au thème de la finale</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.5rem; border-radius: var(--r); margin-top: 1.5rem; border: 2px solid #EF4444;">
+                            <p
+                                style="margin: 0 0 0.5rem; font-weight: 700; color: var(--dark);">Éléments
+                                évalués :</p>
+                            <ul
+                                style="margin: 0; padding-left: 1.5rem; color: var(--grey);">
+                                <li>Capacité d'adaptation en temps réel</li>
+                                <li>Cohérence du propos malgré le délai très
+                                    court</li>
+                                <li>Créativité dans l'angle choisi</li>
+                                <li>Expression scénique spontanée</li>
+                                <li>Clarté et impact du message</li>
+                                <li>Respect du temps imparti</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Thématiques Art oratoire -->
+                    <h3
+                        style="font-size: 1.6rem; font-weight: 900; color: var(--dark); margin: 2rem 0 1.5rem;"
+                        data-reveal>10 thématiques – Phase éliminatoire</h3>
+                    <div class="theme-grid">
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num">01</div>
+                            <h3>Faut-il accepter qu'une vérité soit construite
+                                collectivement plutôt que scientifiquement
+                                ?</h3>
+                            <p>Explorez les limites de la vérité objective face
+                                à la construction sociale des savoirs.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num">02</div>
+                            <h3>L'être humain doit-il renoncer à certains
+                                progrès pour préserver son humanité ?</h3>
+                            <p>Questionnez le prix du progrès technologique sur
+                                notre essence humaine.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num">03</div>
+                            <h3>La douleur peut-elle être considérée comme un
+                                moteur légitime de transformation ?</h3>
+                            <p>Analysez le rôle de la souffrance dans
+                                l'évolution personnelle et collective.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num">04</div>
+                            <h3>Le silence peut-il être une forme de
+                                communication supérieure à la parole ?</h3>
+                            <p>Défendez ou contestez la puissance du non-dit
+                                dans nos échanges.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num">05</div>
+                            <h3>Une société peut-elle fonctionner sans
+                                hiérarchie déclarée ?</h3>
+                            <p>Imaginez les structures sociales alternatives et
+                                leurs implications.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num">06</div>
+                            <h3>La mémoire collective doit-elle être protégée de
+                                l'oubli à tout prix ?</h3>
+                            <p>Débattez du devoir de mémoire face au besoin de
+                                tourner la page.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num">07</div>
+                            <h3>Le progrès doit-il être mesuré autrement qu'en
+                                performance ou en chiffres ?</h3>
+                            <p>Proposez de nouveaux indicateurs pour évaluer
+                                l'avancement de nos sociétés.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num">08</div>
+                            <h3>L'émotion peut-elle être une source de
+                                connaissance aussi valable que la raison ?</h3>
+                            <p>Confrontez les approches rationnelles et
+                                émotionnelles de la compréhension du monde.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num">09</div>
+                            <h3>L'imperfection doit-elle être valorisée comme
+                                une norme sociale ?</h3>
+                            <p>Remettez en question la quête de perfection dans
+                                nos sociétés modernes.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num">10</div>
+                            <h3>Faut-il limiter certaines libertés individuelles
+                                pour protéger l'attention humaine ?</h3>
+                            <p>Explorez les tensions entre liberté personnelle
+                                et bien-être collectif à l'ère numérique.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THÉÂTRE -->
+        <section style="background: #FAFCFF;">
+            <div class="container">
+                <div class="category-section" data-reveal>
+                    <div class="category-header">
+                        <div class="category-icon" style="background: #1f2937;">
+                            <svg width="32" height="32" viewBox="0 0 24 24"
+                                fill="#fff" aria-hidden="true">
+                                <path
+                                    d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 4h2v5l-1-.75L9 9V4zm9 16H6V4h1v9l3-2.25L13 13V4h5v16z" />
+                            </svg>
+                        </div>
+                        <h2>Catégorie 2 : Théâtre</h2>
+                        <span class="category-badge"
+                            style="background: rgba(31, 41, 55, .1); color: #1f2937;">En
+                            équipe • 100 points</span>
+                    </div>
+
+                    <div class="category-intro"
+                        style="border-left-color: #1f2937;">
+                        <p><strong>Concept général :</strong> Le théâtre vise à
+                            construire une scène complète avec une histoire ou
+                            situation forte, des personnages clairement
+                            identifiables, un message explicite ou implicite, et
+                            une forte dimension d'expression scénique.
+                            L'objectif n'est pas seulement de jouer un texte,
+                            mais de proposer une mise en scène cohérente,
+                            expressive et marquante.</p>
+                    </div>
+
+                    <!-- Phase éliminatoire Théâtre -->
+                    <div
+                        style="background: #F7FAFF; padding: 2rem; border-radius: var(--r-m); margin-bottom: 2rem;"
+                        data-reveal>
+                        <h3
+                            style="font-size: 1.4rem; font-weight: 900; color: var(--dark); margin: 0 0 1rem;">Phase
+                            éliminatoire • 50 points</h3>
+                        <div style="display: grid; gap: 1rem;">
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Format
+                                    :</strong> Performance théâtrale en équipe
+                                de 7 à 10 minutes</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Choix :</strong>
+                                5 thématiques proposées à l'avance</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Liberté
+                                    :</strong> Totale sur la mise en scène, les
+                                personnages, le style</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.5rem; border-radius: var(--r); margin-top: 1.5rem; border: 2px solid #1f2937;">
+                            <p
+                                style="margin: 0 0 0.5rem; font-weight: 700; color: var(--dark);">Éléments
+                                évalués :</p>
+                            <ul
+                                style="margin: 0; padding-left: 1.5rem; color: var(--grey);">
+                                <li>Cohérence de groupe (écoute, coordination,
+                                    équilibre des rôles)</li>
+                                <li>Mise en scène (déplacements, rythme,
+                                    occupation de l'espace)</li>
+                                <li>Expression scénique (voix, corps,
+                                    regard)</li>
+                                <li>Clarté du message (comprendre ce qui est en
+                                    jeu)</li>
+                                <li>Émotions transmises</li>
+                                <li>Respect du thème choisi</li>
+                                <li>Captation du public</li>
+                                <li>Respect du temps imparti</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase finale Théâtre -->
+                    <div
+                        style="background: #FFF9E6; padding: 2rem; border-radius: var(--r-m); margin-bottom: 2rem;"
+                        data-reveal>
+                        <h3
+                            style="font-size: 1.4rem; font-weight: 900; color: var(--dark); margin: 0 0 1rem;">Phase
+                            finale • 30 points</h3>
+                        <div style="display: grid; gap: 1rem;">
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Format
+                                    :</strong> Performance de 5 minutes</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Préparation
+                                    :</strong> 7 jours (thème annoncé à la
+                                période éliminatoire)</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Contraintes
+                                    :</strong> Thème imposé avec contraintes
+                                (structure, personnages, lieu, etc.)</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.5rem; border-radius: var(--r); margin-top: 1.5rem; border: 2px solid var(--yellow);">
+                            <p
+                                style="margin: 0 0 0.5rem; font-weight: 700; color: var(--dark);">Éléments
+                                évalués :</p>
+                            <ul
+                                style="margin: 0; padding-left: 1.5rem; color: var(--grey);">
+                                <li>Capacité à intégrer les contraintes</li>
+                                <li>Clarté de la dramaturgie en temps
+                                    limité</li>
+                                <li>Impact émotionnel</li>
+                                <li>Cohérence de groupe</li>
+                                <li>Respect du temps imparti</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Improvisation Théâtre -->
+                    <div
+                        style="background: #FFE8E8; padding: 2rem; border-radius: var(--r-m); margin-bottom: 2rem;"
+                        data-reveal>
+                        <h3
+                            style="font-size: 1.4rem; font-weight: 900; color: var(--dark); margin: 0 0 1rem;">Improvisation
+                            • 20 points</h3>
+                        <div style="display: grid; gap: 1rem;">
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Quand :</strong>
+                                Juste après la prestation finale de 5
+                                minutes</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Thème :</strong>
+                                Imposé et lié au thème de la finale (tiré au
+                                sort)</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Préparation
+                                    :</strong> 5 minutes (pendant la prestation
+                                de l'équipe précédente)</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Durée :</strong>
+                                5 minutes d'improvisation scénique</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.5rem; border-radius: var(--r); margin-top: 1.5rem; border: 2px solid #EF4444;">
+                            <p
+                                style="margin: 0 0 0.5rem; font-weight: 700; color: var(--dark);">Éléments
+                                évalués :</p>
+                            <ul
+                                style="margin: 0; padding-left: 1.5rem; color: var(--grey);">
+                                <li>Réactivité et écoute dans le groupe</li>
+                                <li>Créativité de la proposition scénique</li>
+                                <li>Cohérence minimale de la scène malgré
+                                    l'improvisation</li>
+                                <li>Présence et énergie</li>
+                                <li>Respect du temps imparti</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Thématiques Théâtre -->
+                    <h3
+                        style="font-size: 1.6rem; font-weight: 900; color: var(--dark); margin: 2rem 0 1.5rem;"
+                        data-reveal>5 thématiques – Phase éliminatoire</h3>
+                    <div class="theme-grid">
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num"
+                                style="background: #1f2937;">01</div>
+                            <h3>Le mensonge par omission</h3>
+                            <p>Créez une scène où chaque personnage cache
+                                volontairement une information cruciale aux
+                                autres. Explorez les tensions et les malentendus
+                                qui en découlent.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num"
+                                style="background: #1f2937;">02</div>
+                            <h3>Le rendez-vous qui change tout</h3>
+                            <p>Montrez une rencontre apparemment banale qui
+                                transforme le destin d'un ou plusieurs
+                                personnages, sans qu'ils s'en rendent compte sur
+                                le moment.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num"
+                                style="background: #1f2937;">03</div>
+                            <h3>L'éléphant dans la pièce</h3>
+                            <p>Mettez en scène un groupe qui évite soigneusement
+                                de parler du vrai problème qui les réunit. Le
+                                sujet tabou plane sans jamais être nommé
+                                directement.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num"
+                                style="background: #1f2937;">04</div>
+                            <h3>La décision sans décideur</h3>
+                            <p>Illustrez comment un groupe prend une décision
+                                importante sans vote ni consensus clair. Montrez
+                                les mécanismes implicites qui mènent au choix
+                                final.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num"
+                                style="background: #1f2937;">05</div>
+                            <h3>Quand tout le monde a raison</h3>
+                            <p>Présentez un conflit où chaque personnage défend
+                                une position objectivement légitime, mais où
+                                personne ne peut gagner. Explorez la complexité
+                                des situations sans solution évidente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DÉBAT MIS EN SCÈNE -->
+        <section>
+            <div class="container">
+                <div class="category-section" data-reveal>
+                    <div class="category-header">
+                        <div class="category-icon"
+                            style="background: var(--yellow);">
+                            <svg width="32" height="32" viewBox="0 0 24 24"
+                                fill="#0A1128" aria-hidden="true">
+                                <path
+                                    d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z" />
+                            </svg>
+                        </div>
+                        <h2>Catégorie 2 : Débat mis en scène</h2>
+                        <span class="category-badge"
+                            style="background: rgba(253, 181, 21, .15); color: #0A1128;">En
+                            équipe • 100 points</span>
+                    </div>
+
+                    <div class="category-intro"
+                        style="border-left-color: var(--yellow);">
+                        <p><strong>Concept général :</strong> Le débat mis en
+                            scène n'oppose pas deux équipes distinctes. Une
+                            seule équipe construit une scène dans laquelle un
+                            débat est lancé autour d'un thème, des positions
+                            différentes s'expriment clairement (pour, contre,
+                            sceptique, modérateur, etc.), la mise en scène sert
+                            à rendre le débat vivant et accessible, et le public
+                            est amené à réfléchir, à réagir, voire à se
+                            positionner. L'objectif : montrer que le débat peut
+                            être une forme d'expression scénique à part
+                            entière.</p>
+                    </div>
+
+                    <!-- Phase éliminatoire Débat -->
+                    <div
+                        style="background: #F7FAFF; padding: 2rem; border-radius: var(--r-m); margin-bottom: 2rem;"
+                        data-reveal>
+                        <h3
+                            style="font-size: 1.4rem; font-weight: 900; color: var(--dark); margin: 0 0 1rem;">Phase
+                            éliminatoire • 50 points</h3>
+                        <div style="display: grid; gap: 1rem;">
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Format
+                                    :</strong> Débat théâtralisé en équipe de 7
+                                à 10 minutes</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Choix :</strong>
+                                5 thématiques proposées à l'avance</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Configuration
+                                    :</strong> Liberté totale (un pour, un
+                                contre, un modérateur ; plusieurs personnages
+                                avec nuances ; dispositifs originaux...)</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.5rem; border-radius: var(--r); margin-top: 1.5rem; border: 2px solid var(--yellow);">
+                            <p
+                                style="margin: 0 0 0.5rem; font-weight: 700; color: var(--dark);">Éléments
+                                évalués :</p>
+                            <ul
+                                style="margin: 0; padding-left: 1.5rem; color: var(--grey);">
+                                <li>Structure argumentative (on comprend les
+                                    arguments en présence)</li>
+                                <li>Dynamique des échanges (répliques, relances,
+                                    contradictions)</li>
+                                <li>Mise en scène du débat (situation, lieu,
+                                    contexte inventés)</li>
+                                <li>Cohésion d'équipe</li>
+                                <li>Expression scénique (voix, corps,
+                                    intensité)</li>
+                                <li>Clarté du message global</li>
+                                <li>Respect du thème choisi</li>
+                                <li>Respect du temps imparti</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase finale Débat -->
+                    <div
+                        style="background: #FFF9E6; padding: 2rem; border-radius: var(--r-m); margin-bottom: 2rem;"
+                        data-reveal>
+                        <h3
+                            style="font-size: 1.4rem; font-weight: 900; color: var(--dark); margin: 0 0 1rem;">Phase
+                            finale • 30 points</h3>
+                        <div style="display: grid; gap: 1rem;">
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Format
+                                    :</strong> Débat de 5 minutes</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Préparation
+                                    :</strong> 7 jours (thème annoncé à la
+                                période éliminatoire)</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Contraintes
+                                    :</strong> Thème imposé, position imposée et
+                                contraintes (type de lieu, style de prise de
+                                parole, personnage obligatoire, etc.)</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.5rem; border-radius: var(--r); margin-top: 1.5rem; border: 2px solid var(--yellow);">
+                            <p
+                                style="margin: 0 0 0.5rem; font-weight: 700; color: var(--dark);">Éléments
+                                évalués :</p>
+                            <ul
+                                style="margin: 0; padding-left: 1.5rem; color: var(--grey);">
+                                <li>Comment l'équipe gère une position
+                                    imposée</li>
+                                <li>Intégration des contraintes dans la
+                                    scène</li>
+                                <li>Lisibilité du débat (arguments et
+                                    désaccords)</li>
+                                <li>Qualité de la mise en scène en temps
+                                    limité</li>
+                                <li>Respect du temps imparti</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Improvisation Débat -->
+                    <div
+                        style="background: #FFE8E8; padding: 2rem; border-radius: var(--r-m); margin-bottom: 2rem;"
+                        data-reveal>
+                        <h3
+                            style="font-size: 1.4rem; font-weight: 900; color: var(--dark); margin: 0 0 1rem;">Improvisation
+                            • 20 points</h3>
+                        <div style="display: grid; gap: 1rem;">
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Quand :</strong>
+                                Juste après la prestation finale de 5
+                                minutes</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Thème :</strong>
+                                Imposé et lié au thème de la finale (tiré au
+                                sort)</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Préparation
+                                    :</strong> 5 minutes (pendant la prestation
+                                de l'équipe précédente)</p>
+                            <p style="margin: 0; color: var(--grey);"><strong
+                                    style="color: var(--dark);">Durée :</strong>
+                                5 minutes de débat improvisé</p>
+                        </div>
+                        <div
+                            style="background: #fff; padding: 1.5rem; border-radius: var(--r); margin-top: 1.5rem; border: 2px solid #EF4444;">
+                            <p
+                                style="margin: 0 0 0.5rem; font-weight: 700; color: var(--dark);">Éléments
+                                évalués :</p>
+                            <ul
+                                style="margin: 0; padding-left: 1.5rem; color: var(--grey);">
+                                <li>Capacité à relancer un débat spontané</li>
+                                <li>Cohésion et réactivité du groupe</li>
+                                <li>Clarté des positions malgré le temps
+                                    réduit</li>
+                                <li>Présence, énergie et écoute</li>
+                                <li>Respect du temps imparti</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Thématiques Débat -->
+                    <h3
+                        style="font-size: 1.6rem; font-weight: 900; color: var(--dark); margin: 2rem 0 1.5rem;"
+                        data-reveal>5 thématiques – Phase éliminatoire</h3>
+                    <div class="theme-grid">
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num"
+                                style="background: var(--yellow); color: #0A1128;">01</div>
+                            <h3>La société doit-elle privilégier le doute plutôt
+                                que la certitude ?</h3>
+                            <p>Opposez ceux qui défendent la quête de vérités
+                                absolues à ceux qui valorisent l'incertitude et
+                                la remise en question constante.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num"
+                                style="background: var(--yellow); color: #0A1128;">02</div>
+                            <h3>Un monde sans anonymat serait-il plus juste
+                                ?</h3>
+                            <p>Débattez des bénéfices d'une transparence totale
+                                (responsabilisation, fin de l'impunité) face aux
+                                dangers pour la vie privée et la liberté
+                                d'expression.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num"
+                                style="background: var(--yellow); color: #0A1128;">03</div>
+                            <h3>Faut-il accepter une surveillance permanente si
+                                elle est totalement transparente ?</h3>
+                            <p>Confrontez liberté individuelle et sécurité
+                                collective dans un système où la surveillance
+                                serait ouverte à tous, sans zones d'ombre.</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num"
+                                style="background: var(--yellow); color: #0A1128;">04</div>
+                            <h3>L'être humain doit-il renoncer à certains droits
+                                pour préserver le collectif ?</h3>
+                            <p>Explorez les tensions entre intérêt personnel et
+                                bien commun : jusqu'où peut-on limiter les
+                                libertés individuelles au nom du groupe ?</p>
+                        </div>
+
+                        <div class="theme-card" data-reveal>
+                            <div class="theme-num"
+                                style="background: var(--yellow); color: #0A1128;">05</div>
+                            <h3>La vérité doit-elle toujours être révélée, même
+                                lorsqu'elle détruit des équilibres ?</h3>
+                            <p>Questionnez la valeur absolue de la vérité face à
+                                ses conséquences potentiellement destructrices
+                                sur les individus et la société.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RÉCAPITULATIF -->
+        <section
+            style="background: linear-gradient(135deg, #0A1128, #1f2937); color: #fff;">
+            <div class="container">
+                <div data-reveal style="max-width: 1000px; margin: 0 auto;">
+                    <h2
+                        style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 900; margin-bottom: 2rem; text-align: center;">Récapitulatif
+                        des trois formats</h2>
+
+                    <div style="display: grid; gap: 2rem; margin-top: 2.5rem;">
+                        <!-- Art oratoire recap -->
+                        <div
+                            style="background: rgba(255,255,255,.08); backdrop-filter: blur(10px); padding: 2rem; border-radius: var(--r-m); border: 2px solid rgba(255,255,255,.15);">
+                            <h3
+                                style="font-size: 1.4rem; font-weight: 900; margin: 0 0 1rem; color: var(--yellow);">Art
+                                oratoire • Individuel • 100 points</h3>
+                            <div style="display: grid; gap: 1rem;">
+                                <p
+                                    style="margin: 0; opacity: .9;"><strong>Éliminatoire
+                                        (50 pts) :</strong> 10 thématiques au
+                                    choix, 7 jours de préparation, 7 minutes de
+                                    discours</p>
+                                <p
+                                    style="margin: 0; opacity: .9;"><strong>Finale
+                                        (30 pts) :</strong> Thème, position et
+                                    contraintes imposés, 7 jours de préparation,
+                                    5 minutes</p>
+                                <p
+                                    style="margin: 0; opacity: .9;"><strong>Improvisation
+                                        (20 pts) :</strong> 1 minute de
+                                    préparation, 2 minutes de discours</p>
+                            </div>
+                        </div>
+
+                        <!-- Théâtre recap -->
+                        <div
+                            style="background: rgba(255,255,255,.08); backdrop-filter: blur(10px); padding: 2rem; border-radius: var(--r-m); border: 2px solid rgba(255,255,255,.15);">
+                            <h3
+                                style="font-size: 1.4rem; font-weight: 900; margin: 0 0 1rem; color: var(--yellow);">Théâtre
+                                • En équipe • 100 points</h3>
+                            <div style="display: grid; gap: 1rem;">
+                                <p
+                                    style="margin: 0; opacity: .9;"><strong>Éliminatoire
+                                        (50 pts) :</strong> 5 thématiques au
+                                    choix, 7 à 10 minutes de performance</p>
+                                <p
+                                    style="margin: 0; opacity: .9;"><strong>Finale
+                                        (30 pts) :</strong> Thème imposé avec
+                                    contraintes, 7 jours de préparation, 5
+                                    minutes de performance</p>
+                                <p
+                                    style="margin: 0; opacity: .9;"><strong>Improvisation
+                                        (20 pts) :</strong> 5 minutes de
+                                    préparation (pendant prestation équipe
+                                    précédente), 5 minutes de scène</p>
+                            </div>
+                        </div>
+
+                        <!-- Débat recap -->
+                        <div
+                            style="background: rgba(255,255,255,.08); backdrop-filter: blur(10px); padding: 2rem; border-radius: var(--r-m); border: 2px solid rgba(255,255,255,.15);">
+                            <h3
+                                style="font-size: 1.4rem; font-weight: 900; margin: 0 0 1rem; color: var(--yellow);">Débat
+                                mis en scène • En équipe • 100 points</h3>
+                            <div style="display: grid; gap: 1rem;">
+                                <p
+                                    style="margin: 0; opacity: .9;"><strong>Éliminatoire
+                                        (50 pts) :</strong> 5 thématiques au
+                                    choix, 7 à 10 minutes de débat
+                                    théâtralisé</p>
+                                <p
+                                    style="margin: 0; opacity: .9;"><strong>Finale
+                                        (30 pts) :</strong> Thème, position et
+                                    contraintes imposés, 7 jours de préparation,
+                                    5 minutes de débat</p>
+                                <p
+                                    style="margin: 0; opacity: .9;"><strong>Improvisation
+                                        (20 pts) :</strong> 5 minutes de
+                                    préparation (pendant prestation équipe
+                                    précédente), 5 minutes de débat
+                                    improvisé</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p
+                        style="text-align: center; margin-top: 2.5rem; font-size: 1.1rem; opacity: .95;">
+                        Chaque format évalue votre capacité à allier
+                        <strong>fond, forme, émotion, créativité et
+                            rigueur</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section
+            style="background: linear-gradient(135deg, var(--blue), #0C4DA2); color: #fff; text-align: center;">
+            <div class="container">
+                <div data-reveal>
+                    <h2
+                        style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin: 0 0 1rem;">
+                        Prêt à relever le défi ?
+                    </h2>
+                    <p
+                        style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; opacity: .95;">
+                        Inscrivez-vous dès maintenant et préparez-vous à
+                        exprimer votre talent devant un public et un jury
+                        d'experts.
+                    </p>
+                    <a class="nav-cta"
+                        href="https://forms.gle/6SEHk9zGw6eGp3bt9"
+                        target="_blank"
+                        style="display: inline-block; font-size: 1.1rem; padding: 1rem 2rem;">
+                        S'inscrire au concours
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer id="contact">
+            <div class="fgrid">
+                <div>
+                    <div class="fbrand">
+                        <img src="JCI-Iarivo.png" alt="JCI IARIVO" />
+                        <strong>ACT – JCI IARIVO</strong>
+                    </div>
+                    <p class="sub" style="color:rgba(255,255,255,.85)">Concours
+                        d'expression scénique & pitch
+                        entrepreneurial. Former, challenger, révéler.</p>
+                    <a class="nav-cta"
+                        href="https://forms.gle/6SEHk9zGw6eGp3bt9"
+                        target="_blank"
+                        style="display:inline-block; margin-top:.6rem">S'inscrire</a>
+                </div>
+
+                <div>
+                    <div class="ftitle">Programme</div>
+                    <ul class="flinks">
+                        <li><a href="index.html#why">Pourquoi & comment</a></li>
+                        <li><a href="index.html#volets">Volets</a></li>
+                        <li><a href="index.html#planning">Planning</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="ftitle">Ressources</div>
+                    <ul class="flinks">
+                        <li><a href="index.html#galerie">Galerie</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a
+                                href="/cdn-cgi/l/email-protection#8dfeeae1e4ecffe4fbe2cde7eee4e0ece9eca3e2ffeab2fef8efe7e8eef9b0c0e8e9e4eca8bfbdccced9a8bfbdbfbdbfb8">Presse
+                                & médias</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="ftitle">Contact</div>
+                    <ul class="flinks">
+                        <li><a
+                                href="mailto:sgliarivo@jcimada.org">sgliarivo@jcimada.org</a></li>
+                        <li><a href="tel:+261321259946">+261 32 12 599
+                                46</a></li>
+                        <li><a href="https://www.facebook.com/JCIIarivo"
+                                target="_blank"
+                                rel="noopener">Facebook JCI
+                                IARIVO</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fbot">
+                <span>© 2025 ACT – Accelerator for Creative Talent</span>
+                <span>Antananarivo, Madagascar</span>
+            </div>
+        </footer>
+
+        <!-- STICKY & TOP -->
+        <div class="sticky" role="region" aria-label="Actions rapides">
+            <a class="btn primary" href="sujet_prise-parole.html"
+                target="_blank">Sujet</a>
+            <a class="btn secondary" href="https://forms.gle/6SEHk9zGw6eGp3bt9"
+                target="_blank">Concours</a>
+        </div>
+        <button class="top" aria-label="Remonter en haut"
+            onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+        <!-- COOKIE -->
+        <div id="cookie" class="cookie" role="region" aria-label="Cookies">
+            <span>Nous utilisons des cookies techniques pour améliorer
+                l’expérience.</span>
+            <div style="margin-left:auto;display:flex;gap:8px">
+                <button class="btn secondary"
+                    onclick="cookieDecline()">Refuser</button>
+                <button class="btn primary"
+                    onclick="cookieAccept()">Accepter</button>
+            </div>
+        </div>
+
+        <!-- JSON-LD (FAQ + Events) -->
+        <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"Qui peut participer ?","acceptedAnswer":{"@type":"Answer","text":"Jeunes de 18 à 40 ans : étudiants, diplômés, orateurs, artistes, porteurs d’idées de projet."}},
+        {"@type":"Question","name":"Quelles sont les dates ?","acceptedAnswer":{"@type":"Answer","text":"15 novembre 2025 (ateliers), 22 novembre 2025 (phase éliminatoire), 29 novembre 2025 (grande finale)."}},
+        {"@type":"Question","name":"Quels sont les volets ?","acceptedAnswer":{"@type":"Answer","text":"Art oratoire ; Débat ; Slam/poésie/théâtre ; Pitch entrepreneurial."}},
+        {"@type":"Question","name":"Comment s’inscrire ?","acceptedAnswer":{"@type":"Answer","text":"Cliquez sur S’inscrire pour nous contacter par email."}}
+      ]},
+      {"@type":"Event","name":"ACT — Ateliers","startDate":"2025-11-15","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Antananarivo","addressCountry":"MG"}}},
+      {"@type":"Event","name":"ACT — Éliminatoires","startDate":"2025-11-21","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Antananarivo","addressCountry":"MG"}}},
+      {"@type":"Event","name":"ACT — Finale","startDate":"2025-11-29","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Antananarivo","addressCountry":"MG"}}}
+    ]
+  }
+  </script>
+
+        <!-- JS: reveal, faq, cookie, subtle parallax/tilt -->
+        <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+    // FAQ toggles
+    document.querySelectorAll('.q').forEach(q => {
+      const btn = q.querySelector('.qbtn');
+      btn.addEventListener('click', () => {
+        const isOpen = q.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+
+    // Cookie
+    function cookieAccept() { localStorage.setItem('cookie', '1'); document.getElementById('cookie').style.display = 'none' }
+    function cookieDecline() { localStorage.setItem('cookie', '0'); document.getElementById('cookie').style.display = 'none' }
+    (function () { if (localStorage.getItem('cookie') !== null) { document.getElementById('cookie').style.display = 'none' } })();
+
+    // Subtle parallax tilt on hover (no external lib)
+    (function () {
+      const els = [...document.querySelectorAll('[data-tilt]')];
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+      els.forEach(el => {
+        el.style.transformStyle = 'preserve-3d';
+        el.addEventListener('mousemove', (e) => {
+          const r = el.getBoundingClientRect();
+          const cx = r.left + r.width / 2;
+          const cy = r.top + r.height / 2 + window.scrollY;
+          const dx = (e.pageX - cx) / r.width;
+          const dy = (e.pageY - cy) / r.height;
+          el.style.transform = `rotateX(${(-dy * 6).toFixed(2)}deg) rotateY(${(dx * 6).toFixed(2)}deg) translateY(-4px)`;
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = '';
+        });
+      });
+    })();
+  </script>
+    </body>
+
+</html>
